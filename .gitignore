@@ -1,5 +1,5 @@
 # ignore these files: 
-.gitignore
+config.js
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
