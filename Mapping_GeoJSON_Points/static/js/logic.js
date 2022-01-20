@@ -28,7 +28,7 @@ let sanFranAirport = {
     }]
 };
 
-// Grabbing our GeoJSON data.
+
 // L.geoJSON(sanFranAirport).addTo(map);
 
 // Grabbing our GeoJSON data.
