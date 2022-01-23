@@ -64,21 +64,21 @@ d3.json("https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.geoj
     // This function determines the color of the marker based on the magnitude of the earthquake.
     function getColor(magnitude) {
         if (magnitude > 5) {
-            return "#ea2c2c";
+            return "#d65969";
         }
         if (magnitude > 4) {
-            return "#ea822c";
+            return "#d688c9";
         }
         if (magnitude > 3) {
-            return "#ee9c00";
+            return "#bd88d6";
         }
         if (magnitude > 2) {
-            return "#eecc00";
+            return "#8899d6";
         }
         if (magnitude > 1) {
-            return "#d4ee00";
+            return "#88b0d6";
         }
-        return "#98ee00";
+        return "#88d6ce";
     }
 
     // This function determines the radius of the earthquake marker based on its magnitude.
@@ -120,12 +120,17 @@ d3.json("https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.geoj
 
         const magnitudes = [0, 1, 2, 3, 4, 5];
         const colors = [
-            "#98ee00",
-            "#d4ee00",
-            "#eecc00",
-            "#ee9c00",
-            "#ea822c",
-            "#ea2c2c"
+            "#88d6ce",
+            "#88b0d6",
+            "#8899d6",
+            "#bd88d6",
+            "#d688c9",
+            "#d65969"
+
+
+
+
+
         ];
 
         // Looping through our intervals to generate a label with a colored square for each interval.
@@ -143,16 +148,17 @@ d3.json("https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.geoj
 
     // 3. Use d3.json to make a call to get our Tectonic Plate geoJSON data.
     let tpStyle = {
-        color: "#ffffa1",
-        weight: 5
-    }
-    tectonicPlateData = "/PB2002_boundaries.json";
-
-    d3.json(tectonicPlateData).then(function(data) {
+            color: "#264f45",
+            weight: 2
+        }
+        //tectonicPlateData = ;
+    tectonicPlates = "https://raw.githubusercontent.com/kjkubik/Mapping_Earthquakes/main/PB2002_boundaries.json";
+    d3.json(tectonicPlates).then(function(data) {
         // mode: 'no-cors',
         L.geoJSON(data, {
             style: tpStyle
-        })
-    }).addTo(allTectonicPlates);
+        }).addTo(allTectonicPlates);
+    })
+
     allTectonicPlates.addTo(map);
 });
