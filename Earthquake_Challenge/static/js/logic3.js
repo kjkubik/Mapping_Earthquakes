@@ -16,21 +16,12 @@ let satelliteStreets = L.tileLayer('https://api.mapbox.com/styles/v1/mapbox/sate
 });
 
 // Then we add our 'graymap' tile layer to the map.
-//streets.addTo(earthquakes);
+//streets.addTo(map);
 
 // Create a base layer that holds both maps.
 let baseMaps = {
     "Streets": streets,
     "Satellite": satelliteStreets
-};
-
-// Create the earthquake layer for our map.
-let earthquakeLayer = new L.layerGroup();
-
-// We define an object that contains the overlays.
-// This overlay will be visible all the time.
-let overlays = {
-    Earthquakes: earthquakeLayer
 };
 
 let map = L.map('mapid', {
@@ -39,17 +30,15 @@ let map = L.map('mapid', {
     layers: [streets]
 })
 
-
 // Pass our map layers into our layers control and add the layers control to the map.
-L.control.layers(baseMaps, overlays).addTo(map);
-
-
+L.control.layers(baseMaps).addTo(map);
 
 // Accessing the Toronto neighborhoods GeoJSON URL
 let earthquakes = "https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.geojson"
 
 // Retrieve the earthquake GeoJSON data.
 d3.json(earthquakes).then(function(data) {
+    // Creating a GeoJSON layer with the retrieved data.
     // Creating a GeoJSON layer with the retrieved data.
     L.geoJSON(data, {
         // We turn each feature into a circleMarker on the map.
@@ -64,42 +53,9 @@ d3.json(earthquakes).then(function(data) {
         onEachFeature: function(feature, layer) {
             layer.bindPopup("Magnitude: " + feature.properties.mag + "<br>Location: " + feature.properties.place);
         }
-    }).addTo(earthquakeLayer);
 
-    earthquakeLayer.addTo(map);
-
-
+    }).addTo(map);
 });
-
-// Create a legend control object.
-let legend = L.control({ position: 'bottomright' });
-
-// Then add all the details for the legend.
-legend.onAdd = function() {
-
-    let div = L.DomUtil.create('div', 'info legend');
-
-    const magnitudes = [0, 1, 2, 3, 4, 5];
-    const colors = [
-        "#98ee00",
-        "#d4ee00",
-        "#eecc00",
-        "#ee9c00",
-        "#ea822c",
-        "#ea2c2c"
-    ];
-
-    // Looping through our intervals to generate a label with a colored square for each interval.
-    for (var i = 0; i < magnitudes.length; i++) {
-        console.log(colors[i]);
-        div.innerHTML +=
-            "<i style='background: " + colors[i] + "'></i> " +
-            magnitudes[i] + (magnitudes[i + 1] ? "&ndash;" + magnitudes[i + 1] + "<br>" : "+");
-    }
-    return div;
-}
-
-legend.addTo(map);
 
 // This function returns the style data for each of the earthquakes we plot on
 // the map. We pass the magnitude of the earthquake into two separate functions
@@ -112,7 +68,7 @@ function stylesInfo(feature) {
     return {
         opacity: 1,
         fillOpacity: 1,
-        color: "black",
+        // color: "black",
         // fillColor: "red",
         fillColor: getColor(magnitude),
         radius: getRadius(magnitude),
@@ -126,7 +82,7 @@ function getColor(magnitude) {
 
     console.log(magnitude);
     switch (magnitude) {
-        case magnitude = 5:
+        case (magnitude = 5):
             return "#eaae2c";
         case magnitude = 4:
             return "#afc979";
