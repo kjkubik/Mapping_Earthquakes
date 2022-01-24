@@ -147,5 +147,5 @@ function getRadius(magnitude) {
     if (magnitude < 0) {
         return 1;
     }
-    return magnitude * 4;
+    return magnitude * 8;
 }
