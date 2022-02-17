@@ -7,7 +7,6 @@ The purpose of this project is to visually show the differences between the magn
 ## Map Created
 ![](Images/FinalChallenge.png)
 
-
 ## Tasks
 Using a URL for GeoJSON earthquake data from the USGS website and retrieve geographical coordinates and the magnitudes of earthquakes for the last seven days. Then add the data to a map.
 
@@ -16,7 +15,8 @@ Using JavaScript and D3.js library to retrieve the coordinates and magnitudes of
 
 Conclusion: Using GeoJSON for mapping is awesome fun. The documentation surrounding Leafet and Geo JSON is easy to understand and has the ability to NOT 'quake' anyone's mind.
 
-Here is an example using Linestrings: 
+### Here is an example using Linestrings: 
 ![](Images/Mapping_GeoJSON_Linestrings.png)
-Here is an example using Polygons: 
+
+### Here is an example using Polygons: 
 ![](Images/Mapping_GeoJSON_Linestrings.png)
