@@ -7,7 +7,6 @@ The purpose of this project is to visually show the differences between the magn
 ## Map Created
 ![](Images/FinalChallenge.png)
 
-
 ## Tasks
 Using a URL for GeoJSON earthquake data from the USGS website and retrieve geographical coordinates and the magnitudes of earthquakes for the last seven days. Then add the data to a map.
 
