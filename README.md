@@ -19,4 +19,4 @@ Conclusion: Using GeoJSON for mapping is awesome fun. The documentation surround
 ![](Images/Mapping_GeoJSON_Linestrings.png)
 
 ### Here is an example using Polygons: 
-![](Images/Mapping_GeoJSON_Linestrings.png)
+![](Images/Mapping_GeoJSON_Polygons.png)
