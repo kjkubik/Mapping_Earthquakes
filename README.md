@@ -1,5 +1,5 @@
 # Mapping_Earthquakes
-Visualizing Earthquake Data - Mapping Earthquakes with JavaScript, GeoJSON (Points, Linestrings, Polygons and Non-Spatial Attributes), API, Leafet Library
+Visualizing Earthquake Data - Mapping Earthquakes with JavaScript, GeoJSON (Points, Linestrings, Polygons and Non-Spatial Attributes), API, Leaflet Library
 
 ## Purpose
 The purpose of this project is to visually show the differences between the magnitudes of earthquakes all over the world for the last seven days.
